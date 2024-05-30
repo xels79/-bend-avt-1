@@ -1,0 +1,161 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12.11.2023, 14:43:44
+    Author     : Алесандр
+*/
+@charset "utf-8";
+@import "car.css";
+:root{
+    --heading-color:#333;
+    --model-gradient1:rgba(25,31,34,.3);
+    --model-gradient2:rgba(25,31,34,.7);
+    --model-name-size:3.75rem;
+    --model-price-size:1.5rem;
+    --btn-color-default:#333;
+    --btn-default-hover-color:#d5001c;
+}
+.container-fluid{
+    width: 100%;
+    padding: 0 1rem;
+}
+.headline{
+    text-align: center;
+    color:var(--heading-color);
+    font-size: 2rem;
+    padding: 1rem;
+    font-weight: 100;
+}
+.model-main{
+   grid-area: 1/1/1/1;
+}
+.models{
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+.model-range{
+    margin: 1rem;
+    padding: 1rem;
+}
+.model__item{
+    position: relative;
+    overflow: hidden;
+    
+}
+.model__img{
+    display: block;
+    width: 100%;
+    transition: transform .2s ease-in-out;
+}
+.model__item:hover .model__img{
+    transform: scale(1.02);
+}
+.model__info{
+    position: absolute;
+    background: linear-gradient(to bottom, var(--model-gradient1), var(--model-gradient2));
+    padding: 1rem 2rem 2rem;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.model__name{
+    font-size: var(--model-name-size);
+}
+.model__price{
+    font-size: var(--model-price-size);
+    letter-spacing: 0.025em;
+}
+.model__price::before{
+    content: "от ";
+}
+.model__price::after{
+    content: " руб. вкл. НДС";
+}
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+    margin: .25rem;
+    padding: .75rem 1.25rem;
+    transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out, transform .3s ease-in-out;
+}
+.btn:hover{
+    transform: translateY(-5px);
+}
+.btn-default{
+    color: var(--btn-color-default);
+    background: #fff;
+    border:1px solid #fff;
+}
+.btn-bordered{
+    border:1px solid #fff;
+    color:#fff;
+}
+.btn-bordered:hover{
+    color: var(--btn-default-hover-color);
+    border-color: var(--btn-default-hover-color);
+}
+.btn-default:hover{
+    color:#fff;
+    background-color: var(--btn-default-hover-color);
+    border-color:  var(--btn-default-hover-color);
+}
+
+@media screen and (min-width: 576px) and (max-width:767.98px) {
+   .container{
+        width: 552px;
+    }
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width:991.98px) {
+    .model-main{
+        grid-area: 1/1/3/3;
+    }
+    .models{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container{
+        width: 746px;
+    }
+
+
+}
+@media screen and (min-width: 992px) and (max-width:1199.98px){
+    .model-main{
+        grid-area: 1/1/3/3;
+    }
+    .models{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .container{
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .model-main{
+        grid-area: 1/1/3/3;
+    }
+    .models{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .container{
+        width: 1178px;
+    }
+}
+
+
